@@ -6,16 +6,10 @@ existing boot2docker box created through
 
 ## Requirements
 
-* Mac OS X 10.9+
+* Mac OS X 10.14+
 * [Minikube](https://github.com/kubernetes/minikube) 1.2.0+
 
 ## Install
-
-### [Homebrew](http://brew.sh/)
-
-```sh
-brew install minikube-nfs
-```
 
 ### Standalone
 
