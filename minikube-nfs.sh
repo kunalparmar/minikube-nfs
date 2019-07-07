@@ -8,23 +8,18 @@ set -o errexit
 asciiLogo ()
 {
   echo
-  echo
-  echo '                       ##         .'
-  echo '                 ## ## ##        ==               _   _ _____ ____'
-  echo '              ## ## ## ## ##    ===              | \ | |  ___/ ___|'
-  echo '          /"""""""""""""""""\___/ ===            |  \| | |_  \___ \'
-  echo '     ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~     | |\  |  _|  ___) |'
-  echo '          \______ o           __/                |_| \_|_|   |____/'
-  echo '            \    \         __/'
-  echo '             \____\_______/'
-  echo
+  echo '                           _             _                                     '
+  echo '              _         _ ( )           ( )                    _   _ _____ ____'
+  echo '    ___ ___  (_)  ___  (_)| |/ )  _   _ | |_      __          | \ | |  ___/ ___|'
+  echo '  /  _ ` _ `\| |/  _ `\| || , <  ( ) ( )|  _`\  / __`\        |  \| | |_  \___ \'
+  echo '  | ( ) ( ) || || ( ) || || |\`\ | (_) || |_) )(  ___/        | |\  |  _|  ___) |'
+  echo '  (_) (_) (_)(_)(_) (_)(_)(_) (_)`\___/ (_,__/ `\____)        |_| \_|_|   |____/'
   echo
 }
 
 # @info:    Prints the usage
 usage ()
 {
-
   asciiLogo
 
   cat <<EOF
@@ -73,7 +68,7 @@ EOF
 # @args:    error-message
 echoError ()
 {
-  echo "\033[0;31mFAIL\n\n$1 \033[0m"
+  echo "\033[0;31mFAIL\n$1 \033[0m"
 }
 
 # @info:    Prints warning messages
@@ -125,6 +120,7 @@ setPropDefaults()
 # @info:    Parses and validates the CLI arguments
 parseCli()
 {
+  echoInfo "Parsing args ... \t\t\t\t"
   for i in "${@}"
   do
     case $i in
@@ -166,7 +162,6 @@ parseCli()
 
       *)
         echoError "Unknown argument '$i' given"
-        echo #EMPTY
         usage
       ;;
     esac
