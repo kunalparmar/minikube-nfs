@@ -27,6 +27,7 @@ Usage: $0 [options]
 
 Options:
 
+  -h, --help                Print usage
   -f, --force               Force reconfiguration of nfs
   -p, --profile             Minikube profile to use (default to 'minikube')
   -n, --nfs-config          NFS configuration to use in /etc/exports. (default to '-alldirs -mapall=\$(id -u):\$(id -g)')
@@ -120,7 +121,6 @@ setPropDefaults()
 # @info:    Parses and validates the CLI arguments
 parseCli()
 {
-  echoInfo "Parsing args ... \t\t\t\t"
   for i in "${@}"
   do
     case $i in
@@ -158,6 +158,10 @@ parseCli()
 
       --ip=*)
       prop_use_ip="${i#*=}"
+      ;;
+
+      -h|--help)
+      usage
       ;;
 
       *)
