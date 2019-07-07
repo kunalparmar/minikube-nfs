@@ -14,9 +14,9 @@ existing boot2docker box created through
 ### Standalone
 
 ```sh
-curl -s https://raw.githubusercontent.com/kunalparmar/minikube-nfs/master/minikube-nfs.sh |
-  tee /usr/local/bin/minikube-nfs > /dev/null && \
-  chmod +x /usr/local/bin/minikube-nfs
+curl -sL https://raw.githubusercontent.com/kunalparmar/minikube-nfs/master/minikube-nfs.sh > minikube-nfs && \
+  chmod +x minikube-nfs && \
+  mv minikube-nfs /usr/local/bin
 ```
 
 
