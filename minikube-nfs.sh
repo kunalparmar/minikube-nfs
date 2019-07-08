@@ -246,7 +246,7 @@ configureNFS()
 
   echoWarn "\n !!! Sudo will be necessary for editing /etc/exports !!!"
 
-  #-- Update the /etc/exports file and restart nfsd
+  # Update the /etc/exports file and restart nfsd
 
   local exports_begin="# minikube-nfs-begin $prop_profile_name #"
   local exports_end="# minikube-nfs-end $prop_profile_name #"
@@ -274,7 +274,7 @@ configureNFS()
 
   # Write new exports block ending
   exports="${exports}${exports_end}"
-  #Export to file
+  # Export to file
   printf "$exports" | sudo tee /etc/exports >/dev/null
 
   sudo nfsd restart ; sleep 2 && sudo nfsd checkexports
@@ -298,7 +298,10 @@ configureBoot2Docker()
   # (this will override an existing /var/lib/boot2docker/bootlocal.sh)
 
   local bootlocalsh='#!/bin/sh
-sudo umount /Users'
+# Plain `umount` fails with error "... is not an NFS filesystem"
+# This explains the issue and suggests using `-i` to workaround:
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=799668
+sudo umount -i /Users'
 
   for shared_folder in "${prop_shared_folders[@]}"
   do
