@@ -360,7 +360,7 @@ isNFSMounted()
 # @info:    Verifies that NFS is successfully mounted
 verifyNFSMount()
 {
-  echoInfo "Verify NFS mount ... \t\t\t"
+  echoInfo "Verify NFS mount ... \t\t\t\t"
 
   local attempts=10
 
