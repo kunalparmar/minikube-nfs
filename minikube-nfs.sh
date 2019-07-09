@@ -5,7 +5,7 @@ set -o errexit
 # BEGIN _functions
 
 # @info:    Prints the ascii logo
-asciiLogo ()
+asciiLogo()
 {
   echo
   echo '                           _             _                                     '
@@ -18,7 +18,7 @@ asciiLogo ()
 }
 
 # @info:    Prints the usage
-usage ()
+usage()
 {
   asciiLogo
 
@@ -67,35 +67,35 @@ EOF
 
 # @info:    Prints error messages
 # @args:    error-message
-echoError ()
+echoError()
 {
   echo "\033[0;31mFAIL\n$1 \033[0m"
 }
 
 # @info:    Prints warning messages
 # @args:    warning-message
-echoWarn ()
+echoWarn()
 {
   echo "\033[0;33m$1 \033[0m"
 }
 
 # @info:    Prints success messages
 # @args:    success-message
-echoSuccess ()
+echoSuccess()
 {
   echo "\033[0;32m$1 \033[0m"
 }
 
 # @info:    Prints check messages
 # @args:    success-message
-echoInfo ()
+echoInfo()
 {
   printf "\033[1;34m[INFO] \033[0m$1"
 }
 
 # @info:    Prints property messages
 # @args:    property-message
-echoProperties ()
+echoProperties()
 {
   echo "\t\033[0;35m- $1 \033[0m"
 }
@@ -195,7 +195,7 @@ parseCli()
 
 # @info:    Checks if the machine is running
 # @return:  (none)
-checkMachineRunning ()
+checkMachineRunning()
 {
   echoInfo "Checking if machine is running ... \t\t"
 
@@ -213,7 +213,7 @@ checkMachineRunning ()
 
 # @info:    Loads mandatory properties from the machine
 # @return:  (none)
-lookupMandatoryProperties ()
+lookupMandatoryProperties()
 {
   echoInfo "Lookup mandatory properties ... \t\t\t"
 
