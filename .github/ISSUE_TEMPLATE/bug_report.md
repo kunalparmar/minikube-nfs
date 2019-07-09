@@ -1,9 +1,7 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: ''
 labels: bug
-assignees: ''
 
 ---
 
@@ -11,16 +9,18 @@ assignees: ''
 A clear and concise description of what the bug is.
 
 **Steps to reproduce**
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
+1. Create minikube cluster using <command>
+2. Verify ...
+3. Run minikube-nfs with <options>
 4. See error
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
-**Output**
-Terminal output or screenshots to show the problem.
-
 **Environment**
-Details about the environment such as OS name, OS version, minikube version, minikube VM driver, minikube-nfs version
+OS name:
+OS version: 
+minikube version: 
+minikube VM driver:
+minikube-nfs version:
+Other relevant environment details
