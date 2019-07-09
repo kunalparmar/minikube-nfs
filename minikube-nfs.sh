@@ -309,9 +309,6 @@ sudo umount -i /Users'
 sudo mkdir -p \""$shared_folder"\""
   done
 
-  bootlocalsh="${bootlocalsh}
-sudo /usr/local/etc/init.d/nfs-client start"
-
   for shared_folder in "${prop_shared_folders[@]}"
   do
     bootlocalsh="${bootlocalsh}
@@ -326,21 +323,10 @@ sudo mount -t nfs -o "$prop_mount_options" "$prop_nfshost_ip":\""$shared_folder"
   sleep 2
 
   echoSuccess "OK"
-}
 
-# @info:    Restarts machine
-restartMachine()
-{
-  if isPropertyNotSet $prop_profile_name; then
-    echoError "'prop_profile_name' not set!"; exit 1;
-  fi
-
-  echoInfo "Stopping machine ...\n"
-  minikube stop -p $prop_profile_name
-  echoSuccess "\t\t\t\t\t\t\tOK"
-
-  echoInfo "Starting machine ...\n"
-  minikube start -p $prop_profile_name
+  echoInfo "Mounting NFS ...\n"
+  minikube ssh -p $prop_profile_name \
+  "sudo $file"
   echoSuccess "\t\t\t\t\t\t\tOK"
 }
 
@@ -420,7 +406,6 @@ echo #EMPTY LINE
 configureNFS
 
 configureBoot2Docker
-restartMachine
 
 verifyNFSMount
 
