@@ -18,9 +18,9 @@ A clear and concise description of what the bug is.
 A clear and concise description of what you expected to happen.
 
 **Environment**
-OS name:
-OS version: 
-minikube version: 
-minikube VM driver:
-minikube-nfs version:
-Other relevant environment details
+* OS name:
+* OS version: 
+* minikube version: 
+* minikube VM driver:
+* minikube-nfs version:
+* Other relevant environment details
